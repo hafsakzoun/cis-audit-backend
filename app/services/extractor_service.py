@@ -8,6 +8,22 @@ BenchmarkConfig = namedtuple("BenchmarkConfig", ["pattern", "identifier", "categ
 BENCHMARK_MAP = {
     "CIS MongoDB 7  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MONGODB_", "Database"),
     "CIS Docker Benchmark": BenchmarkConfig(r"(v\d+(?:\.\d+)*)(.*?)(\(Automated\)|\(Manual\))", "Docker_", "Contrainerisation"),
+    
+    "PostgreSQL 9.5 Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Scored\)|\(Not(.*?)Scored\))", "PGSQL_", "Database"),
+    "PostgreSQL 9.6 Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Scored\)|\(Not(.*?)Scored\))", "PGSQL_", "Database"),
+    "PostgreSQL 10 Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Scored\)|\(Not(.*?)Scored\))", "PGSQL_", "Database"),
+    "PostgreSQL 11 Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Scored\)|\(Not(.*?)Scored\))", "PGSQL_", "Database"),
+    "Oracle MySQL Community Server 5.6 Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MYSQLCS_", "Database"),
+    "CIS Oracle MySQL  Community Server 8.0  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MYSQLCS_", "Database"),
+    "CIS Oracle MySQL  Enterprise Edition 5.6  Benchmark - ARCHIVE": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MYSQLEE_", "Database"),
+    "CIS Oracle MySQL  Enterprise Edition 5.7  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MYSQLEE_", "Database"),
+    "CIS Oracle MySQL  Enterprise Edition 8.0  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MYSQLEE_", "Database"),
+    "CIS MariaDB 10.11  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MADB_", "Database"),
+    "CIS MariaDB 10.11  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "MADB_", "Database"),
+    "CIS IBM DB2 9 Benchmark - ARCHIVE": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Scored\)|\(Not(.*?)Scored\))", "IBMDB2_", "Database"),
+    "CIS IBM DB2 10 Benchmark - ARCHIVE": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Scored\)|\(Not(.*?)Scored\))", "IBMDB2_", "Database"),
+    "CIS IBM Db2 11  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "IBMDB2_", "Database"),
+    "CIS IBM Db2 13 for z/OS  Benchmark": BenchmarkConfig(r"(\d+(?:\.\d.\d*)+)(.*?)(\(Automated\)|\(Manual\))", "IBMDB2_", "Database"),
     "CIS Kubernetes  Benchmark": BenchmarkConfig(r"(v\d+(?:\.\d+)*)(.*?)(\(Automated\)|\(Manual\))", "CISK8s_", "Containerisation"),
     }
 def parse_cis_pdf(pdf_file_stream, output_stream):
