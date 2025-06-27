@@ -1,7 +1,7 @@
-Audit Report for Acme Corp
-Solution: postgresSQL 16
-Auditor: John Doe
-Date: 2025-06-24 00:25:23
+Audit Report for Acme Corporation
+Solution: postgresSQL
+Auditor: AKZOUN Hafsa
+Date: 2025-06-25 09:46:22
 
 Rule,Result,Current Value,Expected Value
 Control 3.1.13 Ensure the program name for PostgreSQL syslog messages is correct (Automated):,PASS,syslog_ident is set to postgres,

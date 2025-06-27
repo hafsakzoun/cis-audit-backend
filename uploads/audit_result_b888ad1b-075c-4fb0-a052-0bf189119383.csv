@@ -1,7 +1,7 @@
-Audit Report for DP
+Audit Report for Dataprotect
 Solution: postgresSQL
-Auditor: hafsa akzoun
-Date: 2025-06-24 01:26:07
+Auditor: AKZOUN Hafsa
+Date: 2025-06-24 02:59:55
 
 Rule,Result,Current Value,Expected Value
 Control 3.1.13 Ensure the program name for PostgreSQL syslog messages is correct (Automated):,PASS,syslog_ident is set to postgres,
