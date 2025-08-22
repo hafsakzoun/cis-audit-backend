@@ -13,6 +13,6 @@ def create_app():
     app.register_blueprint(extractor.extractor)
     app.register_blueprint(indexer.indexer)
     app.register_blueprint(audit_route.audit_route)
-    app.register_blueprint(login.login)   # << This is important!
+    app.register_blueprint(login.login)   
 
     return app

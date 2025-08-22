@@ -11,6 +11,8 @@ es = Elasticsearch(
 )
 
 INDEX_NAME = "cis_controls"
+AUDIT_INDEX = "audit_history"
+
 
 def csv_to_ndjson(file_stream):
     """
@@ -136,3 +138,26 @@ def search_controls(category, version, benchmark_version, editor_name):
 
     results = es.search(index="cis_controls", query=query, size=100)
     return results["hits"]["hits"]
+
+def save_audit_record(audit_record: dict):
+    try:
+        response = es.index(index=AUDIT_INDEX, document=audit_record)
+        print(f"[INFO] ES index response: {response}")
+        return {"status": "success", "message": f"Audit {audit_record.get('audit_id')} saved.", "result": response}
+    except Exception as e:
+        print(f"[ERROR] Failed to save audit: {str(e)}")
+        raise e  # <-- temporarily raise to see the actual error
+
+def get_all_audits(limit=50):
+    """
+    Retrieve latest audits from Elasticsearch.
+    """
+    try:
+        result = es.search(
+            index=AUDIT_INDEX,
+            size=limit,
+            sort=[{"date": {"order": "desc"}}]
+        )
+        return [hit["_source"] for hit in result["hits"]["hits"]]
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
